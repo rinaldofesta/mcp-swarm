@@ -4,7 +4,7 @@ __version__ = "0.1.0"
 
 from mcp_swarm.config.logging import configure_logging, get_logger
 from mcp_swarm.config.settings import Settings
-from mcp_swarm.core.agent import MCPAgent
+from mcp_swarm.core.agent import AgentStatus, MCPAgent
 from mcp_swarm.core.orchestrator import Orchestrator
 
 # Initialize logging with default settings on package import
@@ -17,6 +17,7 @@ configure_logging(
 )
 
 __all__ = [
+    "AgentStatus",
     "MCPAgent",
     "Orchestrator",
     "Settings",
