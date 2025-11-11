@@ -6,6 +6,23 @@ from mcp_swarm.config.logging import configure_logging, get_logger
 from mcp_swarm.config.settings import Settings
 from mcp_swarm.core.agent import AgentStatus, MCPAgent
 from mcp_swarm.core.orchestrator import Orchestrator
+from mcp_swarm.core.protocol import (
+    AgentCapabilities,
+    BaseMessage,
+    ErrorDetails,
+    ErrorMessage,
+    HandshakeRequest,
+    HandshakeResponse,
+    MCPBridgeProtocol,
+    MessagePriority,
+    MessageType,
+    Notification,
+    NotificationMessage,
+    RequestMessage,
+    ResponseMessage,
+    ToolRequest,
+    ToolResponse,
+)
 
 # Initialize logging with default settings on package import
 # This can be reconfigured by users if needed
@@ -17,12 +34,31 @@ configure_logging(
 )
 
 __all__ = [
+    # Core
     "AgentStatus",
     "MCPAgent",
     "Orchestrator",
+    # Configuration
     "Settings",
     "configure_logging",
     "get_logger",
+    # Protocol
+    "AgentCapabilities",
+    "BaseMessage",
+    "ErrorDetails",
+    "ErrorMessage",
+    "HandshakeRequest",
+    "HandshakeResponse",
+    "MCPBridgeProtocol",
+    "MessagePriority",
+    "MessageType",
+    "Notification",
+    "NotificationMessage",
+    "RequestMessage",
+    "ResponseMessage",
+    "ToolRequest",
+    "ToolResponse",
+    # Version
     "__version__",
 ]
 
