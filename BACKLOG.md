@@ -20,7 +20,7 @@
 
 | Phase                     | Status         | Completion | Target Date  |
 | ------------------------- | -------------- | ---------- | ------------ |
-| Week 1-2: Core Protocol   | 🟡 In Progress | 50%        | Nov 18, 2025 |
+| Week 1-2: Core Protocol   | 🟡 In Progress | 60%        | Nov 18, 2025 |
 | Week 3-4: Agent Discovery | ⬜ To Do       | 0%         | Nov 25, 2025 |
 | Week 5-6: State Sync      | ⬜ To Do       | 0%         | Dec 9, 2025  |
 | Week 7-8: Demo & Polish   | ⬜ To Do       | 0%         | Dec 23, 2025 |
@@ -81,6 +81,21 @@
   - **Completed**: November 11, 2025
   - **Time Spent**: ~5h
 
+- [x] **CORE-005**: Implement agent-to-agent communication ✅ **COMPLETED**
+  - ✅ Created abstract Transport interface with InMemoryTransport implementation
+  - ✅ Enhanced LocalRegistry with search by role/tool capabilities
+  - ✅ Added communication methods to MCPAgent (handshake, request, notification)
+  - ✅ Implemented message handlers with request/response correlation
+  - ✅ Background message handler task integrated into agent lifecycle
+  - ✅ Broadcasting support for notifications (receiver_id=None)
+  - ✅ Timeout handling and error propagation
+  - ✅ 13 new unit tests (5 transport + 8 registry) - 50 total tests passing
+  - ✅ Complete working example (examples/agent_communication.py) with 4 scenarios
+  - ✅ Type checking and linting passing (mypy strict + ruff)
+  - **Completed**: November 12, 2025
+  - **Time Spent**: ~6h
+  - **Commit**: 3b4c58e
+
 ### 🔄 In Progress
 
 - None currently
@@ -95,14 +110,7 @@
 
 #### Protocol Implementation
 
-- [ ] **CORE-005**: Implement agent-to-agent communication
-
-  - Create message passing system
-  - Implement request-response pattern
-  - Add async communication support
-  - **Priority**: P0
-  - **Est**: 8h
-  - **Dependencies**: CORE-004
+- [x] **CORE-005**: Implement agent-to-agent communication ✅ **COMPLETED**
 
 - [ ] **CORE-006**: Build message validation layer
 
@@ -637,8 +645,8 @@
 
 ---
 
-**Last Updated**: November 11, 2025
-**Next Review**: November 12, 2025
+**Last Updated**: November 12, 2025
+**Next Review**: November 13, 2025
 **Maintainer**: @rinaldo
 
 ---
@@ -646,7 +654,7 @@
 ## 🎯 Current Sprint Focus
 
 **Active Sprint**: Sprint 1 - Core Protocol (Week 1-2)
-**Progress**: 50% complete (4 of 10 tasks done)
+**Progress**: 60% complete (5 of 10 tasks done)
 
 ### ✅ Completed This Session
 
@@ -669,32 +677,39 @@
   - Protocol specification document (docs/PROTOCOL.md)
   - 23 unit tests passing
   - Factory methods for message creation
+- ✅ **CORE-005**: Agent-to-agent communication implementation
+  - Transport layer with InMemoryTransport
+  - Enhanced LocalRegistry with search capabilities
+  - Agent communication methods (handshake, request, notification)
+  - Background message handlers with correlation
+  - 13 new unit tests (50 total)
+  - Complete working example with 4 scenarios
 
 ### 🔄 Next Steps (Priority Order)
 
-1. **CORE-005**: Implement agent-to-agent communication (~8h)
-   - Create message passing system
-   - Implement request-response pattern
-   - Add async communication support
-
-2. **CORE-006**: Build message validation layer (~4h)
+1. **CORE-006**: Build message validation layer (~4h)
    - Schema validation (mostly done in CORE-004)
    - Message type registry integration
    - Error handling refinements
 
+2. **CORE-007**: Create basic state management (~6h)
+   - Design state representation
+   - Implement state serialization
+   - Add state versioning
+
 ### 📊 Session Summary
 
-- **Total Tasks Completed**: 4 (CORE-001, CORE-002, CORE-003, CORE-004)
-- **Tests Written**: 52 (15 config + 14 agent + 23 protocol)
+- **Total Tasks Completed**: 5 (CORE-001, CORE-002, CORE-003, CORE-004, CORE-005)
+- **Tests Written**: 50 (15 config + 14 agent + 23 protocol + 5 transport + 8 registry)
 - **Test Pass Rate**: 100%
-- **Examples Created**: 2 (basic_logging.py, basic_agent.py)
+- **Examples Created**: 3 (basic_logging.py, basic_agent.py, agent_communication.py)
 - **Documentation**: PROTOCOL.md specification
-- **Lines of Code**: ~2,800
-- **Time Invested**: ~14 hours
-- **Sprint Progress**: 15% → 50% (+35%)
+- **Lines of Code**: ~3,600
+- **Time Invested**: ~20 hours
+- **Sprint Progress**: 15% → 60% (+45%)
 
 ### 📋 Ready to Start
 
-- Agent communication layer (CORE-005) - protocol design complete
 - Message validation refinements (CORE-006) - Pydantic schemas working
+- State management design (CORE-007) - communication layer ready
 - Testing infrastructure proven and working well
