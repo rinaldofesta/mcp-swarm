@@ -20,7 +20,7 @@
 
 | Phase                     | Status         | Completion | Target Date  |
 | ------------------------- | -------------- | ---------- | ------------ |
-| Week 1-2: Core Protocol   | 🟡 In Progress | 60%        | Nov 18, 2025 |
+| Week 1-2: Core Protocol   | 🟡 In Progress | 70%        | Nov 18, 2025 |
 | Week 3-4: Agent Discovery | ⬜ To Do       | 0%         | Nov 25, 2025 |
 | Week 5-6: State Sync      | ⬜ To Do       | 0%         | Dec 9, 2025  |
 | Week 7-8: Demo & Polish   | ⬜ To Do       | 0%         | Dec 23, 2025 |
@@ -96,6 +96,20 @@
   - **Time Spent**: ~6h
   - **Commit**: 3b4c58e
 
+- [x] **CORE-006**: Build message validation layer ✅ **COMPLETED**
+  - ✅ Created MessageTypeRegistry for message type registration
+  - ✅ Implemented MessageValidator with business logic validation
+  - ✅ Added MessageValidationError for structured error reporting
+  - ✅ Support for strict and lenient validation modes
+  - ✅ Business rule validation (sender_id, broadcast rules, correlation_id, timeouts, version format)
+  - ✅ Dictionary and JSON validation support
+  - ✅ 26 new unit tests - 76 total core tests passing
+  - ✅ 91% coverage for validator module
+  - ✅ Type checking and linting passing (mypy strict + ruff)
+  - **Completed**: November 12, 2025
+  - **Time Spent**: ~3h
+  - **Commit**: 1082bf8
+
 ### 🔄 In Progress
 
 - None currently
@@ -112,14 +126,7 @@
 
 - [x] **CORE-005**: Implement agent-to-agent communication ✅ **COMPLETED**
 
-- [ ] **CORE-006**: Build message validation layer
-
-  - Implement schema validation
-  - Add message type registry
-  - Create error handling for invalid messages
-  - **Priority**: P1
-  - **Est**: 4h
-  - **Dependencies**: CORE-005
+- [x] **CORE-006**: Build message validation layer ✅ **COMPLETED**
 
 - [ ] **CORE-007**: Create basic state management
   - Design state representation
@@ -654,7 +661,7 @@
 ## 🎯 Current Sprint Focus
 
 **Active Sprint**: Sprint 1 - Core Protocol (Week 1-2)
-**Progress**: 60% complete (5 of 10 tasks done)
+**Progress**: 70% complete (6 of 10 tasks done)
 
 ### ✅ Completed This Session
 
@@ -684,32 +691,36 @@
   - Background message handlers with correlation
   - 13 new unit tests (50 total)
   - Complete working example with 4 scenarios
+- ✅ **CORE-006**: Message validation layer
+  - MessageTypeRegistry and MessageValidator
+  - Business logic validation (strict/lenient modes)
+  - 26 new unit tests (76 total core tests)
+  - 91% validator coverage
 
 ### 🔄 Next Steps (Priority Order)
 
-1. **CORE-006**: Build message validation layer (~4h)
-   - Schema validation (mostly done in CORE-004)
-   - Message type registry integration
-   - Error handling refinements
-
-2. **CORE-007**: Create basic state management (~6h)
+1. **CORE-007**: Create basic state management (~6h)
    - Design state representation
    - Implement state serialization
    - Add state versioning
 
+2. **CORE-008**: Write unit tests for core protocol (~4h)
+   - Already mostly complete (76 tests)
+   - Add any missing edge cases
+
 ### 📊 Session Summary
 
-- **Total Tasks Completed**: 5 (CORE-001, CORE-002, CORE-003, CORE-004, CORE-005)
-- **Tests Written**: 50 (15 config + 14 agent + 23 protocol + 5 transport + 8 registry)
+- **Total Tasks Completed**: 6 (CORE-001, CORE-002, CORE-003, CORE-004, CORE-005, CORE-006)
+- **Tests Written**: 76 (15 config + 14 agent + 23 protocol + 5 transport + 8 registry + 26 validator)
 - **Test Pass Rate**: 100%
 - **Examples Created**: 3 (basic_logging.py, basic_agent.py, agent_communication.py)
 - **Documentation**: PROTOCOL.md specification
-- **Lines of Code**: ~3,600
-- **Time Invested**: ~20 hours
-- **Sprint Progress**: 15% → 60% (+45%)
+- **Lines of Code**: ~4,400
+- **Time Invested**: ~23 hours
+- **Sprint Progress**: 15% → 70% (+55%)
 
 ### 📋 Ready to Start
 
-- Message validation refinements (CORE-006) - Pydantic schemas working
-- State management design (CORE-007) - communication layer ready
+- State management design (CORE-007) - protocol and validation complete
+- Integration testing (CORE-009) - communication layer ready
 - Testing infrastructure proven and working well
