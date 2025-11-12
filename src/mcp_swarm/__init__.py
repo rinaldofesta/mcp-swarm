@@ -23,6 +23,12 @@ from mcp_swarm.core.protocol import (
     ToolRequest,
     ToolResponse,
 )
+from mcp_swarm.core.validator import (
+    MessageTypeRegistry,
+    MessageValidationError,
+    MessageValidator,
+    validate_message,
+)
 
 # Initialize logging with default settings on package import
 # This can be reconfigured by users if needed
@@ -58,6 +64,11 @@ __all__ = [
     "ResponseMessage",
     "ToolRequest",
     "ToolResponse",
+    # Validation
+    "MessageTypeRegistry",
+    "MessageValidationError",
+    "MessageValidator",
+    "validate_message",
     # Version
     "__version__",
 ]
